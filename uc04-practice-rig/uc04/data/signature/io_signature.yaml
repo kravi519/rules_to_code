@@ -1,0 +1,51 @@
+# IO contract every generated implementation and every test vector must honour.
+inputs:
+  principal:
+    type: decimal
+    scale: 2
+    comp3: true
+    description: Deposit principal, signed, 2 decimal places (COMP-3 packed decimal).
+  tier:
+    type: integer
+    domain: [1, 2, 3]
+    note: "Values outside {1,2,3} are legal inputs — see R-011."
+  year_2d:
+    type: integer
+    range: [0, 99]
+    description: Two-digit year, windowed per R-007 (not otherwise used by interest calc).
+  balance_overpunch:
+    type: signed_trailing_separate
+    digits: 7
+    description: >
+      Raw field as it arrives from the legacy feed: 7 digits followed by a
+      trailing '+' or '-' sign character, e.g. "0001234+" == 1234.
+
+outputs:
+  interest:
+    type: decimal
+    scale: 2
+    comp3: true
+    description: Rounded interest for the calculation (see R-006).
+  capped_interest:
+    type: decimal
+    scale: 2
+    comp3: true
+    description: >
+      Interest after any downstream cap is applied. NOTE: no validated rule
+      describes when/why this differs from `interest` — that gap is exactly
+      what the traceability checker exists to find.
+  balance_magnitude:
+    type: decimal
+    scale: 2
+    description: >
+      The signed numeric value of `balance_overpunch` once correctly parsed
+      (see R-008). Present so a bad overpunch parse is independently testable.
+  windowed_year:
+    type: integer
+    description: The 4-digit year produced by applying R-007's pivot-at-50 window.
+
+rounding:
+  convention: "COBOL ROUNDED clause = round-half-away-from-zero"
+  note: >
+    Do not assume Python's default rounding matches. This is deliberately
+    the R-009-equivalent pathology.

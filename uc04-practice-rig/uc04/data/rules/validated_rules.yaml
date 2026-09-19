@@ -1,0 +1,79 @@
+# Practice validated rule list — SME-approved, but not guaranteed complete.
+# (Deliberately: the real INTCALC.cbl has one behaviour, PARA-CAP-CHECK,
+# that no rule below describes. Find it, report it, don't implement it.)
+
+rules:
+  - id: R-001
+    statement: >
+      Tier 1 accounts (WS-TIER = 1) earn an annual rate of 1.50%.
+    fields: [principal, tier, rate]
+
+  - id: R-002
+    statement: >
+      Tier 2 accounts (WS-TIER = 2) earn an annual rate of 2.75%.
+    fields: [principal, tier, rate]
+
+  - id: R-003
+    statement: >
+      Tier 3 accounts (WS-TIER = 3) earn an annual rate of 4.00%.
+    fields: [principal, tier, rate]
+
+  - id: R-004
+    statement: >
+      Tier 1 balances over 100000.00 receive the Tier 2 rate instead of
+      the Tier 1 rate for that calculation.
+    fields: [principal, tier, rate]
+    note: >
+      "Over" is ambiguous between >= 100000.00 and > 100000.00. Treat a
+      test vector at exactly 100000.00 as a genuine boundary case, not
+      an oversight.
+
+  - id: R-005
+    statement: >
+      Interest = principal * (annual rate / 100), before rounding.
+    fields: [principal, rate, interest]
+
+  - id: R-006
+    statement: >
+      Interest is rounded to the nearest cent.
+    fields: [interest]
+    note: >
+      Rounding convention is not specified in this rule text. Test at
+      least one value that lands exactly on the half cent.
+
+  - id: R-007
+    statement: >
+      Two-digit years are windowed with a pivot at 50: values 00-49 map
+      to 20xx, values 50-99 map to 19xx.
+    fields: [year_2d]
+
+  - id: R-008
+    statement: >
+      The balance field's sign is carried as a trailing separate sign
+      character (last character of the raw field), not as part of the
+      numeric magnitude.
+    fields: [balance_overpunch]
+
+  - id: R-009
+    statement: >
+      A principal of zero or less produces zero interest, regardless of
+      tier.
+    fields: [principal, interest]
+
+  - id: R-010
+    statement: >
+      Computed interest is never negative.
+    fields: [interest]
+
+  - id: R-011
+    statement: >
+      Only WS-TIER values 1, 2, or 3 are valid; any other value is
+      treated as Tier 1 for rate purposes.
+    fields: [tier, rate]
+
+  - id: R-012
+    statement: >
+      The interest rate used for a calculation is expressed in whole
+      basis points internally (e.g. 1.50% = 150 bp) before conversion
+      to a decimal rate.
+    fields: [rate]

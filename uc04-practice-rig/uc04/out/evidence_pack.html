@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Change-Approval Evidence Pack</title>
+<style>
+body{font-family:Georgia,serif;max-width:760px;margin:2rem auto;line-height:1.5}
+h1{border-bottom:2px solid #333} h2{color:#334} section{margin-bottom:1.5rem}
+</style></head><body>
+<h1>Change-Approval Evidence Pack — INTCALC modernisation</h1>
+<section><h2>1. Change Summary</h2><p>This pack covers a proposed reimplementation of INTCALC against 12 SME-validated business rules, tested against 23 vectors (20 of 23 passing).</p></section><section><h2>2. Test Evidence</h2><p>20 of 23 vectors matched the oracle exactly; 3 field-level divergence(s) were found and are itemised in the Known Divergences section below, over this stated, finite vector set.</p></section><section><h2>3. Impact Assessment</h2><p>Traceable rule coverage is 100.0%; every validated rule is cited by at least one test.</p></section><section><h2>4. Known Divergences</h2><p>Vector R-004-v1 (rule R-004, field &#x27;interest&#x27;): expected 1500.00, got 2750.0. Vector R-006-v1 (rule R-006, field &#x27;interest&#x27;): expected 10.13, got 10.12. Vector R-008-v2 (rule R-008, field &#x27;balance_magnitude&#x27;): expected -4567, got 4567.</p></section><section><h2>5. Rollback Plan</h2><p>Untraceable behaviour was found on field &#x27;capped_interest&#x27; (example vector R-003-v2): capped_interest differs from interest for this vector, but no validated rule&#x27;s `fields` list documents capped_interest. This is code behaviour no rule explains.</p></section>
+</body></html>

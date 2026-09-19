@@ -1,0 +1,12 @@
+thresholds:
+  abstain_below: 0.35     # confidence floor — below this, a result auto-abstains
+
+budget:
+  max_tokens_per_case: 4000   # not enforced by the local stand-in llm_client,
+                              # kept here so the real event's llm_client.py has
+                              # a home for it without changing config schema
+
+model:
+  name: "local-heuristic-stand-in"
+  temperature: 0.0
+  seed: 42
