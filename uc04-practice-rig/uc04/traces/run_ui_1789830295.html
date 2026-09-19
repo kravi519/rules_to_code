@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>trace ui</title>
+<style>
+body{font-family:monospace;background:#0b0b0f;color:#ddd;padding:2rem}
+h2{color:#9ad} table{width:100%;border-collapse:collapse;margin-bottom:2rem}
+td,th{border:1px solid #333;padding:4px 8px;text-align:left;font-size:0.85rem}
+.breach{color:#f66}
+</style></head><body>
+<h1>Run trace — ui</h1>
+<p>model: {&#x27;name&#x27;: &#x27;local-heuristic-stand-in&#x27;, &#x27;temperature&#x27;: 0.0, &#x27;seed&#x27;: 42} | elapsed: 0.05s</p>
+<h2>Step timeline</h2><table><tr><th>step</th><th>kind</th><th>elapsed</th><th>note</th></tr><tr><td>1_load_rules_and_signature</td><td>deterministic</td><td>0.018s</td><td></td></tr><tr><td>2_synthesise_test_vectors</td><td>ai</td><td>0.0s</td><td>23 vectors</td></tr><tr><td>3_execute_cobol_oracle</td><td>deterministic</td><td>0.001s</td><td></td></tr><tr><td>4_generate_implementation</td><td>ai</td><td>0.0011s</td><td></td></tr><tr><td>5_run_differential</td><td>deterministic</td><td>0.0009s</td><td>3 divergence(s)</td></tr><tr><td>6_diagnose_divergences</td><td>ai</td><td>0.0s</td><td></td></tr><tr><td>8_draft_evidence_sections</td><td>ai</td><td>0.0s</td><td></td></tr><tr><td>9_render_evidence_pack</td><td>deterministic</td><td>0.0031s</td><td></td></tr></table>
+<h2>AI call detail</h2><table><tr><th>prompt</th><th>confidence</th><th>abstained</th></tr></table>
+<h2>Guardrail verdicts</h2><table><tr><th>guardrail</th><th>verdict</th><th>reason</th></tr><tr><td>G1_no_expected_from_generated_code</td><td>PASS</td><td></td></tr><tr><td>G2_vectors_unmodified</td><td>PASS</td><td></td></tr><tr><td>G3_no_equivalence_claim</td><td>PASS</td><td></td></tr><tr><td>G4_untraceable_reported</td><td>PASS</td><td></td></tr><tr><td>G5_coverage_uses_citations</td><td>PASS</td><td></td></tr></table>
+<h2>Abstentions</h2><table><tr><th>prompt</th><th>reason</th></tr></table>
+</body></html>

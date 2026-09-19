@@ -1,7 +1,7 @@
 {
   "Makefile": "1bdea502fd934fa7b8daa5e2e9948bddf5b3576fe3b9d3d8dc4d084e1a5af49a",
-  "README.md": "bb5bbf5be865615d44059fe704574e1c796e1fd7d8d93f82b0a617eb890e8d88",
-  "app.py": "2ba8faf4c0cd68cfc7d7fab8ec27019d6e844acba1f58647f2ac8cac3620def8",
+  "README.md": "2d667d044247962764a0140b90c1c0820fc355408a30e35ad1fee5ca221612bc",
+  "app.py": "2727eadf9e9fd7146c3b75e7c13344b6659ef7b496658775ebc689d3c6e15263",
   "core/cobol_runner.py": "b3f02a82aefbe0d5cab1933b2d44bf999bd9f0b8dcd0937c14380678f5dca12b",
   "core/differential.py": "a7313e4c44a1d9121171c32adcf8ac7497547fba1f703939894046d43b640a5c",
   "core/evidence_render.py": "e67b0e40c82152725473f54137da2a0c4085f1a15ec2b1fac4d263d453d68652",
@@ -20,7 +20,7 @@
   "infra/guardrails.py": "3c0625fe58e2f0dd8eafcae8d231774229fe26de140879fcec6a8b4451aa0b12",
   "infra/llm_client.py": "e06418a20a12611ecf5707eb4ad2080b9961ab2f77e41bb777851bf4424e8da4",
   "infra/tracer.py": "bc8d87a4c8098603e5d237cb63f995c2373a8ab55ecd33db9728d226f0339691",
-  "requirements.txt": "e485ecafe8b45739d7dd18c73952ea7b5303c8e62628b522859248fda38519d8",
+  "requirements.txt": "c327500fb82a806b05e3949e066185abd16487965aa05102c1f2bc192bc75bc9",
   "run.py": "55c8c5f3dbbe25e05025a90d3a294b9d9c7e89e786d46e464202c49321438a4f",
   "tests/test_contract.py": "9aa737cc5ed2253cae85fa14b1d5f91a87de93252b307c01c5297b4fc66db30a",
   "tests/test_divergence.py": "6c81a15c70d7a543bd9b6184645f8099c7ee24169a27f788d300b1ddadf84cae",
@@ -29,5 +29,5 @@
   "tests/test_implementation.py": "9d2a0a2b66c3d028c4ff2b2edf1657ad3c7019553d7f3dcde7a323d3d90046ae",
   "tests/test_no_core_edits.py": "485771e6dfafece9a20d81f68610b003b2955ab24c4607fa4da2547411e33150",
   "tests/test_test_synthesis.py": "041e2e160e4353494f3fdcf70b5dd443283fa67f0fe03509e9d419f24583a116",
-  "tools/manifest.py": "0f631977783d2699460e02f01c44f699cefad02ac583f063462a5cf8cf4dba3d"
+  "tools/manifest.py": "f1f816eb8762b928952aaa6a7a5a481394bec9975ee162bc2c27fb996ecbad06"
 }

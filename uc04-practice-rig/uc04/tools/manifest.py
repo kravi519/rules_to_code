@@ -19,7 +19,7 @@ MANIFEST_PATH = ROOT / ".manifest.json"
 WRITABLE = {"ai"}
 # Directories that are expected to change every run (generated output) —
 # excluded from the manifest entirely, not just from enforcement.
-IGNORED_DIRS = {"out", "traces", ".git", "__pycache__", "generated"}
+IGNORED_DIRS = {"out", "traces", ".git", "__pycache__", ".pytest_cache", "generated"}
 IGNORED_FILES = {".manifest.json"}
 
 
@@ -39,7 +39,7 @@ def _iter_locked_files():
             continue
         if rel.name.endswith(".pyc"):
             continue
-        yield rel
+        yield rel.as_posix()
 
 
 def _hash_file(path: Path) -> str:
